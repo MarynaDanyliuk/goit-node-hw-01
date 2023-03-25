@@ -23,11 +23,11 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 };
 
 program
-  .option("-a, --action <type>")
-  .option("-i, --id <type>")
-  .option("-n, --name <type>")
-  .option("-e, --email <type>")
-  .option("-ph, --phone <type>");
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
 
 program.parse();
 
