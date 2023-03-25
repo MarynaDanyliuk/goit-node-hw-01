@@ -1,6 +1,8 @@
 const { program } = require("commander");
 
 const contacts = require("./contacts");
+
+console.log(contacts);
 // const program = new program();
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
@@ -12,7 +14,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       const oneContact = await contacts.getContactById(id);
       return console.log(oneContact);
     case "add":
-      const newContact = await contacts.addContact({ name, email, phone });
+      const newContact = await contacts.addContact({ id, name, email, phone });
       return console.log(newContact);
     case "remove":
       const deleteContact = await contacts.removeContact(id);
@@ -34,4 +36,18 @@ program.parse();
 
 const options = program.opts();
 
+// console.log(invokeAction(options));
+
 invokeAction(options);
+
+// _____________________________
+// const fs = require("fs/promises");
+
+// const getAllContacts = async () => {
+//   const data = await fs.readFile(`${__dirname}/contacts.json`, "utf-8");
+//   return JSON.parse(data);
+// };
+
+// module.exports = {
+//   getAllContacts,
+// };
